@@ -1,0 +1,6 @@
+CHANGELOG.rdoc
+lib/net/ssh/gateway.rb
+Rakefile
+README.rdoc
+test/gateway_test.rb
+Manifest
