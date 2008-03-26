@@ -19,6 +19,8 @@ Echoe.new('net-ssh-gateway', version) do |p|
   p.summary          = "a pure-Ruby implementation of the SSH2 client protocol"
   p.url              = "http://net-ssh.rubyforge.org/gateway"
 
+  p.dependencies     = ["net-ssh >=1.99.1"]
+
   p.need_zip         = true
   p.include_rakefile = true
 
