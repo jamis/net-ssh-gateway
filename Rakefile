@@ -16,7 +16,7 @@ Echoe.new('net-ssh-gateway', version) do |p|
 
   p.author           = "Jamis Buck"
   p.email            = "jamis@jamisbuck.org"
-  p.summary          = "a pure-Ruby implementation of the SSH2 client protocol"
+  p.summary          = "A simple library to assist in establishing tunneled Net::SSH connections"
   p.url              = "http://net-ssh.rubyforge.org/gateway"
 
   p.dependencies     = ["net-ssh >=1.99.1"]
