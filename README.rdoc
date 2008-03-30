@@ -1,6 +1,6 @@
 = Net::SSH::Gateway
 
-* http://net-ssh.rubyforge.org/ssh
+* http://net-ssh.rubyforge.org/gateway
 
 == DESCRIPTION:
 
