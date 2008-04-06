@@ -165,7 +165,7 @@ class Net::SSH::Gateway
     begin
       Net::SSH.start("127.0.0.1", user, options.merge(:port => local_port), &block)
     ensure
-      close(local_port) if block
+      close(local_port) if block || $!
     end
   end
 
