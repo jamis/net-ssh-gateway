@@ -37,10 +37,10 @@ class Net::SSH::Gateway
   # A trivial class for representing the version of this library.
   class Version < Net::SSH::Version
     # The major component of the library's version
-    MAJOR = 0
+    MAJOR = 1
 
     # The minor component of the library's version
-    MINOR = 99
+    MINOR = 0
 
     # The tiny component of the library's version
     TINY  = 0
