@@ -27,6 +27,12 @@ class GatewayTest < Test::Unit::TestCase
     assert_equal [65000, "app1", 22], gateway_session.forward.active_locals[65000]
   end
 
+  def test_open_with_explicit_local_port_should_use_that_port
+    gateway_session, gateway = new_gateway
+    assert_equal 8181, gateway.open("app1", 22, 8181)
+    assert_equal [8181, "app1", 22], gateway_session.forward.active_locals[8181]
+  end
+
   def test_ssh_should_return_connection_when_no_block_is_given
     gateway_session, gateway = new_gateway
     expect_connect_to("127.0.0.1", "user", :port => 65535).returns(result = mock("session"))

@@ -1,3 +1,7 @@
+=== (unreleased)
+
+* Allow local port to be specified [Will Klancnik]
+
 === 1.0.0 / 1 May 2008
 
 * (no changes since the preview release)

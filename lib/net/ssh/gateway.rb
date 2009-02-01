@@ -111,25 +111,28 @@ class Net::SSH::Gateway
   #   port = gateway.open('host', 80)
   #   # ...
   #   gateway.close(port)
-  def open(host, port)
+  #
+  # If +local_port+ is not specified, the next available port will be used.
+  def open(host, port, local_port=nil)
     ensure_open!
 
-    local_port = next_port
+    actual_local_port = local_port || next_port
 
     @session_mutex.synchronize do
-      @session.forward.local(local_port, host, port)
+      @session.forward.local(actual_local_port, host, port)
     end
 
     if block_given?
       begin
-        yield local_port
+        yield actual_local_port
       ensure
-        close(local_port)
+        close(actual_local_port)
       end
     else
-      return local_port
+      return actual_local_port
     end
   rescue Errno::EADDRINUSE
+    raise if local_port # if a local port was explicitly requested, bubble the error up
     retry
   end
 
@@ -186,7 +189,9 @@ class Net::SSH::Gateway
 
       @thread = Thread.new do
         while @active
-          @session_mutex.synchronize { @session.process(0.1) }
+          @session_mutex.synchronize do
+            @session.process(0.1)
+          end
         end
       end
     end
