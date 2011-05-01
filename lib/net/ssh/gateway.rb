@@ -65,12 +65,17 @@ class Net::SSH::Gateway
   # are passed as given to that method to start up the gateway connection.
   #
   #   gateway = Net::SSH::Gateway.new('host', 'user', :password => "password")
+  # 
+  # As of 1.1 there is an additional option to specify the wait time for 
+  # the gateway thread. The default is 0.001 seconds and can be changed
+  # with the :loop_wait option.
+  #
   def initialize(host, user, options={})
     @session = Net::SSH.start(host, user, options)
     @session_mutex = Mutex.new
     @port_mutex = Mutex.new
     @next_port = MAX_PORT
-
+    @loop_wait = options.delete(:loop_wait) || 0.001
     initiate_event_loop!
   end
 
@@ -190,7 +195,7 @@ class Net::SSH::Gateway
       @thread = Thread.new do
         while @active
           @session_mutex.synchronize do
-            @session.process(0.001)
+            @session.process(@loop_wait)
           end
           Thread.pass
         end

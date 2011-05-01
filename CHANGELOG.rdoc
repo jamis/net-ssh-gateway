@@ -1,3 +1,8 @@
+=== 1.1.0 / 30 Apr 2011
+
+* Fix for sporadicly stalled SSH connections in Ruby 1.9 [Mat Trudel]
+* Decrease wait time within Net::SSH session loop [Grant Hutchins, Michael Schubert]
+
 === 1.0.1 / 1 Feb 2009
 
 * Allow local port to be specified [Will Klancnik]

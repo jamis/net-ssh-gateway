@@ -15,7 +15,7 @@ Echoe.new('net-ssh-gateway', version) do |p|
   p.changelog        = "CHANGELOG.rdoc"
 
   p.author           = "Jamis Buck"
-  p.email            = "jamis@jamisbuck.org"
+  p.email            = "net-ssh-gateway@solutious.com"
   p.summary          = "A simple library to assist in establishing tunneled Net::SSH connections"
   p.url              = "http://net-ssh.rubyforge.org/gateway"
 
