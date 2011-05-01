@@ -6,12 +6,13 @@ rescue LoadError
   abort "You'll need to have `echoe' installed to use Net::SSH::Gateway's Rakefile"
 end
 
+name = "net-ssh-gateway"
 version = Net::SSH::Gateway::Version::STRING.dup
 if ENV['SNAPSHOT'].to_i == 1
   version << "." << Time.now.utc.strftime("%Y%m%d%H%M%S")
 end
 
-Echoe.new('net-ssh-gateway', version) do |p|
+Echoe.new(name, version) do |p|
   p.changelog        = "CHANGELOG.rdoc"
 
   p.author           = "Jamis Buck"
@@ -25,4 +26,8 @@ Echoe.new('net-ssh-gateway', version) do |p|
   p.include_rakefile = true
 
   p.rdoc_pattern     = /^(lib|README.rdoc|CHANGELOG.rdoc)/
+end
+
+task 'publish:rdoc' => 'doc/index.html' do
+  sh "scp -rp doc/* rubyforge.org:/var/www/gforge-projects/net-ssh/gateway/v1/api/"
 end
