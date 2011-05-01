@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-Net::SSH::Gateway is a library for programmatically tunneling connections to servers via a single "gateway" host. It is useful for establishing Net::SSH connections to servers behind firewalls, but can also be used to forward ports and establish connections of other types, like HTTP, to servers with restricted access.
+Net::SSH::Gateway is a library for programmatically tunnelling connections to servers via a single "gateway" host. It is useful for establishing Net::SSH connections to servers behind firewalls, but can also be used to forward ports and establish connections of other types, like HTTP, to servers with restricted access.
 
 == FEATURES:
 
@@ -28,7 +28,11 @@ In a nutshell:
   end
 
   gateway.shutdown!
-
+  
+  # As of 1.1.0, you can also specify the wait time for the
+  # gateway thread with the :loop_wait option.
+  gateway = Net::SSH::Gateway.new('host', 'user', :loop_wait => 0.001)
+  
 See Net::SSH::Gateway for more documentation.
 
 == REQUIREMENTS:
