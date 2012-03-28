@@ -71,11 +71,11 @@ class Net::SSH::Gateway
   # with the :loop_wait option.
   #
   def initialize(host, user, options={})
+    @loop_wait = options.delete(:loop_wait) || 0.001
     @session = Net::SSH.start(host, user, options)
     @session_mutex = Mutex.new
     @port_mutex = Mutex.new
     @next_port = MAX_PORT
-    @loop_wait = options.delete(:loop_wait) || 0.001
     initiate_event_loop!
   end
 
