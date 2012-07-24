@@ -192,6 +192,7 @@ class Net::SSH::Gateway
           @session_mutex.synchronize do
             @session.process(0.1)
           end
+          Thread.pass
         end
       end
     end
