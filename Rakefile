@@ -1,33 +1,58 @@
+require "rubygems"
+require "rake"
+require "rake/clean"
+require "rdoc/task"
+
+task :default => ["build"]
+CLEAN.include [ 'pkg', 'rdoc' ]
+name = "net-ssh-gateway"
+
+$:.unshift File.join(File.dirname(__FILE__), 'lib')
 require './lib/net/ssh/gateway'
+version = Net::SSH::Gateway::Version::STRING.dup
 
 begin
-  require 'echoe'
+  require "jeweler"
+  Jeweler::Tasks.new do |s|
+    s.version = version
+    s.name = name
+    s.rubyforge_project = s.name
+    s.summary = "A simple library to assist in establishing tunneled Net::SSH connections"
+    s.description = s.summary
+    s.email = "net-ssh@solutious.com"
+    s.homepage = "https://github.com/net-ssh/net-scp"
+    s.authors = ["Jamis Buck", "Delano Mandelbaum"]
+
+    s.add_dependency 'net-ssh', ">=2.6.4"
+
+    s.add_development_dependency 'test-unit'
+    s.add_development_dependency 'mocha'
+
+    s.license = "MIT"
+
+    s.signing_key = File.join('/mnt/gem/', 'gem-private_key.pem')
+    s.cert_chain  = ['gem-public_cert.pem']
+  end
+  Jeweler::GemcutterTasks.new
 rescue LoadError
-  abort "You'll need to have `echoe' installed to use Net::SSH::Gateway's Rakefile"
+  puts "Jeweler (or a dependency) not available. Install it with: sudo gem install jeweler"
 end
 
-name = "net-ssh-gateway"
-version = Net::SSH::Gateway::Version::STRING.dup
-if ENV['SNAPSHOT'].to_i == 1
-  version << "." << Time.now.utc.strftime("%Y%m%d%H%M%S")
+require 'rake/testtask'
+Rake::TestTask.new do |t|
+  t.libs = ["lib", "test"]
 end
 
-Echoe.new(name, version) do |p|
-  p.changelog        = "CHANGELOG.rdoc"
-
-  p.author           = "Jamis Buck"
-  p.email            = "net-ssh-gateway@solutious.com"
-  p.summary          = "A simple library to assist in establishing tunneled Net::SSH connections"
-  p.url              = "http://net-ssh.rubyforge.org/gateway"
-
-  p.dependencies     = ["net-ssh >=1.99.1"]
-
-  p.need_zip         = true
-  p.include_rakefile = true
-
-  p.rdoc_pattern     = /^(lib|README.rdoc|CHANGELOG.rdoc)/
-end
-
-task 'publish:rdoc' => 'doc/index.html' do
-  sh "scp -rp doc/* rubyforge.org:/var/www/gforge-projects/net-ssh/gateway/v1/api/"
+extra_files = %w[LICENSE.txt THANKS.txt CHANGES.txt ]
+RDoc::Task.new do |rdoc|
+  rdoc.rdoc_dir = "rdoc"
+  rdoc.title = "#{name} #{version}"
+  rdoc.generator = 'hanna' # gem install hanna-nouveau
+  rdoc.main = 'README.rdoc'
+  rdoc.rdoc_files.include("README*")
+  rdoc.rdoc_files.include("bin/*.rb")
+  rdoc.rdoc_files.include("lib/**/*.rb")
+  extra_files.each { |file|
+    rdoc.rdoc_files.include(file) if File.exists?(file)
+  }
 end
