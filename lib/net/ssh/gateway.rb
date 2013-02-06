@@ -40,10 +40,10 @@ class Net::SSH::Gateway
     MAJOR = 1
 
     # The minor component of the library's version
-    MINOR = 1
+    MINOR = 2
 
     # The tiny component of the library's version
-    TINY  = 2
+    TINY  = 0
 
     # The library's version as a Version instance
     CURRENT = new(MAJOR, MINOR, TINY)
