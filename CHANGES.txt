@@ -1,3 +1,8 @@
+
+=== 1.1.1 / 06 Feb 2013
+
+* Added public cert. All gem releases are now signed. See INSTALL in readme.
+
 === 1.1.0 / 30 Apr 2011
 
 * Fix for sporadicly stalled SSH connections in Ruby 1.9 [Mat Trudel]
