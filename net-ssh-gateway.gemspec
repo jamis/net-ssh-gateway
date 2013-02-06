@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "net-ssh-gateway"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Jamis Buck", "Delano Mandelbaum"]
@@ -23,7 +23,9 @@ Gem::Specification.new do |s|
     "Manifest",
     "README.rdoc",
     "Rakefile",
+    "gem-public_cert.pem",
     "lib/net/ssh/gateway.rb",
+    "net-ssh-gateway.gemspec",
     "setup.rb",
     "test/gateway_test.rb"
   ]

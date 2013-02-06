@@ -32,7 +32,7 @@ require 'net/ssh/version'
 # Port numbers are allocated automatically, beginning at MAX_PORT and
 # decrementing on each request for a new port until MIN_PORT is reached. If
 # a port is already in use, this is detected and a different port will be
-# assigned. 
+# assigned.
 class Net::SSH::Gateway
   # A trivial class for representing the version of this library.
   class Version < Net::SSH::Version
@@ -43,7 +43,7 @@ class Net::SSH::Gateway
     MINOR = 1
 
     # The tiny component of the library's version
-    TINY  = 0
+    TINY  = 1
 
     # The library's version as a Version instance
     CURRENT = new(MAJOR, MINOR, TINY)
@@ -65,8 +65,8 @@ class Net::SSH::Gateway
   # are passed as given to that method to start up the gateway connection.
   #
   #   gateway = Net::SSH::Gateway.new('host', 'user', :password => "password")
-  # 
-  # As of 1.1 there is an additional option to specify the wait time for 
+  #
+  # As of 1.1 there is an additional option to specify the wait time for
   # the gateway thread. The default is 0.001 seconds and can be changed
   # with the :loop_wait option.
   #
@@ -98,7 +98,7 @@ class Net::SSH::Gateway
     end
 
     @active = false
-    
+
     @thread.join
     @session.close
   end
