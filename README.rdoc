@@ -1,7 +1,7 @@
 = Net::SSH::Gateway
 
 * Docs: http://net-ssh.github.com/net-ssh-gateway
-* Issues: https://github.com/net-ssh/net-ssh-gatewayissues
+* Issues: https://github.com/net-ssh/net-ssh-gateway/issues
 * Codes: https://github.com/net-ssh/net-ssh-gateway
 * Email: net-ssh@solutious.com
 
