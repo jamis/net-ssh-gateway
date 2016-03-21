@@ -1,4 +1,4 @@
-= Net::SSH::Gateway
+# Net::SSH::Gateway
 
 <em><b>Please note: this project is in maintenance mode. It is not under active development but pull requests are very much welcome. Just be sure to include tests! -- delano</b></em>
 
@@ -10,16 +10,16 @@
 <em>As of v1.1.1, all gem releases are signed. See INSTALL.</em>
 
 
-== DESCRIPTION:
+## DESCRIPTION:
 
 Net::SSH::Gateway is a library for programmatically tunnelling connections to servers via a single "gateway" host. It is useful for establishing Net::SSH connections to servers behind firewalls, but can also be used to forward ports and establish connections of other types, like HTTP, to servers with restricted access.
 
-== FEATURES:
+## FEATURES:
 
 * Easily manage forwarded ports
 * Establish Net::SSH connections through firewalls
 
-== SYNOPSIS:
+## SYNOPSIS:
 
 In a nutshell:
 
@@ -43,7 +43,7 @@ In a nutshell:
 
 See Net::SSH::Gateway for more documentation.
 
-== REQUIREMENTS:
+## REQUIREMENTS:
 
 * net-ssh (version 2)
 
@@ -52,7 +52,7 @@ If you want to run the tests or use any of the Rake tasks, you'll need:
 * Echoe (for the Rakefile)
 * Mocha (for the tests)
 
-== INSTALL:
+## INSTALL:
 
 * gem install net-ssh-gateway
 
@@ -70,7 +70,7 @@ Then, when install the gem, do so with high security:
 If you don't add the public key, you'll see an error like "Couldn't verify data signature". If you're still having trouble let me know and I'll give you a hand.
 
 
-== LICENSE:
+## LICENSE:
 
 (The MIT License)
 

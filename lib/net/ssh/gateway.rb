@@ -34,24 +34,6 @@ require 'net/ssh/version'
 # a port is already in use, this is detected and a different port will be
 # assigned.
 class Net::SSH::Gateway
-  # A trivial class for representing the version of this library.
-  class Version < Net::SSH::Version
-    # The major component of the library's version
-    MAJOR = 1
-
-    # The minor component of the library's version
-    MINOR = 2
-
-    # The tiny component of the library's version
-    TINY  = 0
-
-    # The library's version as a Version instance
-    CURRENT = new(MAJOR, MINOR, TINY)
-
-    # The library's version as a String instance
-    STRING = CURRENT.to_s
-  end
-
   # The maximum port number that the gateway will attempt to use to forward
   # connections from.
   MAX_PORT = 65535
