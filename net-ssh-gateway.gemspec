@@ -5,7 +5,7 @@ require 'net/ssh/gateway/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "net-ssh-gateway"
-  spec.version       = Net::Ssh::Gateway::VERSION
+  spec.version       = Net::SSH::Gateway::VERSION
   spec.authors       = ["Jamis Buck", "Delano Mandelbaum"]
   spec.email         = ["net-ssh@solutious.com"]
 
