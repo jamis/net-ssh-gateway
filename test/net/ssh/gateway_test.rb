@@ -1,9 +1,10 @@
 # ruby -I../net-ssh/lib -Ilib -Itest -rrubygems test/gateway_test.rb
-require 'test/unit'
-require 'mocha'
+require 'bundler/setup'
+require 'minitest/autorun'
+require 'mocha/mini_test'
 require 'net/ssh/gateway'
 
-class GatewayTest < Test::Unit::TestCase
+class GatewayTest < MiniTest::Test
   def teardown
     Thread.list { |t| t.kill unless Thread.current == t }
   end
