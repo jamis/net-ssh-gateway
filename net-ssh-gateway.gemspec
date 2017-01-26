@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "minitest", "~> 5.8.4"
   spec.add_development_dependency "mocha", ">= 1.2.1"
 
-  spec.add_runtime_dependency "net-ssh", ">= 2.6.5"
+  spec.add_runtime_dependency "net-ssh", ">= 4.0.0"
 end

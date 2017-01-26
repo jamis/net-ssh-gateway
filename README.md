@@ -69,6 +69,10 @@ Then, when install the gem, do so with high security:
 
 If you don't add the public key, you'll see an error like "Couldn't verify data signature".
 
+## Ruby 1.9
+
+As of release 2.0.0, net-ssh-gateway supports only Ruby >= 2.0.0. The last release that supports Ruby 1.9 is 1.3.0.
+
 
 ## LICENSE:
 
