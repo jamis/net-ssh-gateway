@@ -1,6 +1,6 @@
 # Net::SSH::Gateway
 
-<em><b>Please note: this project is in maintenance mode. It is not under active development but pull requests are very much welcome. Just be sure to include tests! -- delano</b></em>
+<em><b>Please note: this project is in maintenance mode. It is not under active development but pull requests are very much welcome. Just be sure to include tests!</b></em>
 
 * Docs: http://net-ssh.github.com/net-ssh-gateway
 * Issues: https://github.com/net-ssh/net-ssh-gateway/issues
@@ -54,20 +54,20 @@ If you want to run the tests or use any of the Rake tasks, you'll need:
 
 ## INSTALL:
 
-* gem install net-ssh-gateway
+    $ gem install net-ssh-gateway
 
-However, in order to be sure the code you're installing hasn't been tampered with, it's recommended that you verify the signiture[http://docs.rubygems.org/read/chapter/21]. To do this, you need to add my public key as a trusted certificate (you only need to do this once):
+However, in order to be sure the code you're installing hasn't been tampered with, it's recommended that you verify the [signature](http://guides.rubygems.org/security/). To do this, you need to add the project's public key as a trusted certificate (you only need to do this once):
 
     # Add the public key as a trusted certificate
     # (You only need to do this once)
-    $ curl -O https://raw.github.com/net-ssh/net-ssh/master/gem-public_cert.pem
-    $ gem cert --add gem-public_cert.pem
+    $ curl -O https://raw.githubusercontent.com/net-ssh/net-ssh-gateway/master/net-ssh-public_cert.pem
+    $ gem cert --add net-ssh-public_cert.pem
 
 Then, when install the gem, do so with high security:
 
     $ gem install net-ssh-gateway -P HighSecurity
 
-If you don't add the public key, you'll see an error like "Couldn't verify data signature". If you're still having trouble let me know and I'll give you a hand.
+If you don't add the public key, you'll see an error like "Couldn't verify data signature".
 
 
 ## LICENSE:
